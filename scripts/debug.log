@@ -1,0 +1,36 @@
+what's the reason to have a failure code [Errno 13] could not open port /dev/ttyUSB1 from python ?
+There are several reasons why the error message "Errno 13: could not open port /dev/ttyUSB1" might occur when trying to open the UART port "/dev/ttyUSB1" from Python:
+
+Permission Denied: The user running the Python script may not have the necessary permissions to access the serial port. In this case you can try running the script with superuser permissions(sudo).
+
+Port already in use: The UART port may already be in use by another process or program. In this case, you can try running the script after closing the other program that is using the port, or use another port.
+
+Port does not exist: The UART port "/dev/ttyUSB1" may not exist on the system. You can check if the device is connected properly and if it's visible by the system.
+
+Incorrect port name: The UART port name may be spelled incorrectly. Make sure you have the correct port name
+
+Hardware issue: The UART port may be malfunctioning or not properly configured. This can be checked by using other programs to read or write to the port.
+
+It's worth to note that, this error message can also occur if the library or the package you are using is not installed, or there is a version incompatibility.
+
+It is recommended to check these possibilities and narrow down the problem before moving forward.
+
+=======
+
+The error "[Errno 13] could not open port /dev/ttyUSB1: [Errno 13] Permission denied: '/dev/ttyUSB1' Error: UART port not available" in Python on Ubuntu indicates that the user running the Python script does not have the necessary permissions to access the UART port "/dev/ttyUSB1".
+
+Here are some possible ways to fix the error:
+
+Run the script with superuser permissions (sudo): You can use the command "sudo python your_script.py" to run the script with superuser permissions. This will grant the script the necessary permissions to access the UART port.
+
+Add the user to the dialout group: This group has permission to access the serial ports, you can add your user to the dialout group by running the command:
+
+Copy code
+sudo usermod -a -G dialout $USER
+Change the permissions of the serial port: You can change the permissions of the serial port to grant your user access to it by running the command:
+Copy code
+sudo chmod a+rw /dev/ttyUSB1
+check if the device is connect properly and visible by the system, if the device is not visible by the system, you might want to check the driver of the device, and make sure it's installed and configured correctly.
+It's worth to note that, some of these methods may not be applicable or suitable for all systems, please make sure to test them in your environment and use the one that's more appropriate.
+
+After performing one of these steps, the script should be able to access the UART port without any issues.
