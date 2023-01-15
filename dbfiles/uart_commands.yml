@@ -1,0 +1,10 @@
+# commands:
+#   - xvsr 44a30004\r  
+#   - command: "xvsr 44a30004\r"
+#     description: "Read hw version"
+
+# Config:
+#   - xvsr 44a30004\r
+#     description: "Read hw version"
+commands:
+  - xvsr 44a30004\r
